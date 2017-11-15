@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -16,25 +17,24 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Ma13_1" customModuleProvider="target">
             <connections>
                 <outlet property="absize" destination="oRu-pR-gTG" id="1cJ-r8-dZX"/>
-                <outlet property="addHalfToneOut" destination="xbB-B7-RAV" id="IJo-r0-Ve6"/>
+                <outlet property="addHalfTone" destination="xbB-B7-RAV" id="st0-qT-VTB"/>
                 <outlet property="ah" destination="j2S-jA-BWj" id="j7W-HL-GgV"/>
-                <outlet property="allPassOut" destination="S4n-Db-lO3" id="P7w-b3-SFb"/>
+                <outlet property="allPass" destination="S4n-Db-lO3" id="7XQ-Pg-ns0"/>
                 <outlet property="alp" destination="uf1-s6-jUQ" id="2Ma-g6-0xQ"/>
-                <outlet property="audioBuffSizeOut" destination="mQK-cR-K8r" id="ruq-sc-ayb"/>
+                <outlet property="audioBuffSize" destination="mQK-cR-K8r" id="sPI-Hi-kJF"/>
                 <outlet property="flame" destination="96i-T2-mDH" id="6uO-q1-0rY"/>
-                <outlet property="flamePriodOut" destination="pCq-Tf-Bay" id="3WC-Dd-E5T"/>
+                <outlet property="flamePriod" destination="pCq-Tf-Bay" id="pVc-yk-4ym"/>
                 <outlet property="pc" destination="2IK-fk-6hf" id="zbG-NY-y0U"/>
-                <outlet property="postfilteringOut" destination="fBf-iq-l22" id="5Eu-LE-qSh"/>
+                <outlet property="postfiltering" destination="fBf-iq-l22" id="XuX-I8-8Tw"/>
                 <outlet property="samp" destination="odk-Os-oEt" id="eSk-Qo-wKC"/>
-                <outlet property="samplingOut" destination="7li-ns-r2W" id="n4l-sm-upQ"/>
-                <outlet property="talkSpeedOut" destination="m84-UT-ld7" id="rZ3-F9-iWR"/>
-                <outlet property="talkText" destination="tEa-eF-r54" id="7rM-J6-aDe"/>
+                <outlet property="sampling" destination="7li-ns-r2W" id="kwa-YW-fJi"/>
+                <outlet property="talkSpeed" destination="m84-UT-ld7" id="MTU-Qh-hcM"/>
                 <outlet property="textBox" destination="tEa-eF-r54" id="Noa-nQ-nlY"/>
                 <outlet property="ts" destination="C2P-iA-JkH" id="mM0-bf-dQK"/>
-                <outlet property="voiceUnvoiceOut" destination="H4V-RE-Q4d" id="7MR-Oj-ygO"/>
+                <outlet property="voiceUnvoice" destination="H4V-RE-Q4d" id="5ES-dc-mmP"/>
                 <outlet property="vunv" destination="7Ve-kb-Vfv" id="gWb-cJ-nPL"/>
-                <outlet property="weightF0Out" destination="pkg-yD-wp0" id="ngl-Iu-Ng2"/>
-                <outlet property="weightSpectrumOut" destination="NMs-In-FD9" id="q8f-eY-Oao"/>
+                <outlet property="weightF0" destination="pkg-yD-wp0" id="Ibx-4w-RVc"/>
+                <outlet property="weightSpectrum" destination="NMs-In-FD9" id="sO9-EZ-c83"/>
                 <outlet property="wf" destination="4VD-VQ-AWc" id="85R-WO-i6c"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
                 <outlet property="ws" destination="sz7-7T-f1X" id="q28-vn-WTg"/>
@@ -691,7 +691,7 @@
             </items>
             <point key="canvasLocation" x="203" y="-532"/>
         </menu>
-        <window title="はじめてのファイルへの読み書き" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="OpenJTalk" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="647" height="758"/>
@@ -708,9 +708,6 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <connections>
-                            <action selector="Talktext:" target="Voe-Tx-rLC" id="gVk-Pu-ys5"/>
-                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOc-Ke-ohA">
                         <rect key="frame" x="380" y="553" width="65" height="32"/>
@@ -734,14 +731,25 @@
                             <action selector="pause:" target="Voe-Tx-rLC" id="j3N-67-QfV"/>
                         </connections>
                     </button>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7li-ns-r2W">
-                        <rect key="frame" x="321" y="452" width="116" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="50000" doubleValue="48000" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="08q-a8-7Dv"/>
-                        <connections>
-                            <action selector="sampling:" target="Voe-Tx-rLC" id="8qE-rP-JLG"/>
-                        </connections>
-                    </slider>
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-NF-wo0">
+                        <rect key="frame" x="323" y="453" width="112" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7li-ns-r2W">
+                                <rect key="frame" x="-2" y="-1" width="116" height="24"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="50000" doubleValue="48000" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="08q-a8-7Dv"/>
+                                <connections>
+                                    <action selector="sampling:" target="Voe-Tx-rLC" id="8qE-rP-JLG"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJr-vb-Vfn">
                         <rect key="frame" x="37" y="457" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -778,7 +786,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="sampact:" target="Voe-Tx-rLC" id="J68-YI-kzA"/>
+                            <action selector="samp:" target="Voe-Tx-rLC" id="Jvg-6O-j6P"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0k-qR-5Ik">
@@ -795,7 +803,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="300" doubleValue="240" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="NgT-6q-VvT"/>
                         <connections>
-                            <action selector="flamePriod:" target="Voe-Tx-rLC" id="Mhc-yJ-1vk"/>
+                            <action selector="sampling:" target="Voe-Tx-rLC" id="y2O-Zx-Dbz"/>
                         </connections>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-OY-JWv">
@@ -834,7 +842,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="flameact:" target="Voe-Tx-rLC" id="TgC-Ia-Z5F"/>
+                            <action selector="flame:" target="Voe-Tx-rLC" id="fu0-Jq-FtS"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bww-9t-lcS">
@@ -890,7 +898,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="alpact:" target="Voe-Tx-rLC" id="Jx8-cL-1Pk"/>
+                            <action selector="alp:" target="Voe-Tx-rLC" id="1BS-49-ORQ"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkv-5j-86m">
@@ -946,7 +954,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="pcact:" target="Voe-Tx-rLC" id="5VR-PO-lL9"/>
+                            <action selector="pc:" target="Voe-Tx-rLC" id="rjf-h0-tTA"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPy-0y-NCu">
@@ -1002,7 +1010,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="tsact:" target="Voe-Tx-rLC" id="iwx-WM-8Ik"/>
+                            <action selector="ts:" target="Voe-Tx-rLC" id="eJO-SO-WhV"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pqa-Hm-Lud">
@@ -1058,7 +1066,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="ahact:" target="Voe-Tx-rLC" id="qq7-kJ-0Mr"/>
+                            <action selector="ah:" target="Voe-Tx-rLC" id="UFx-B0-Qec"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYg-i3-fbG">
@@ -1114,7 +1122,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="vunvact:" target="Voe-Tx-rLC" id="9E5-YZ-Vte"/>
+                            <action selector="vunv:" target="Voe-Tx-rLC" id="Qrs-R6-pLy"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhw-7q-kyW">
@@ -1170,7 +1178,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="wsact:" target="Voe-Tx-rLC" id="ao9-R9-bxV"/>
+                            <action selector="ws:" target="Voe-Tx-rLC" id="8GJ-lT-RzS"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvU-J0-J6H">
@@ -1226,7 +1234,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="wfact:" target="Voe-Tx-rLC" id="KLz-Yf-sKD"/>
+                            <action selector="wf:" target="Voe-Tx-rLC" id="6z8-Fh-t3p"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRl-h8-fOO">
@@ -1282,7 +1290,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="absizeact:" target="Voe-Tx-rLC" id="zOT-WA-cbF"/>
+                            <action selector="absize:" target="Voe-Tx-rLC" id="IG3-5x-F9j"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2L5-Lo-in5">
@@ -1306,27 +1314,49 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIC-B3-KmJ">
-                        <rect key="frame" x="483" y="32" width="125" height="32"/>
+                        <rect key="frame" x="482" y="32" width="125" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="ベス英語既定値" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lGk-QH-Hiz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="bethEng:" target="Voe-Tx-rLC" id="u8Q-82-Vdf"/>
+                            <action selector="defaultButton:" target="Voe-Tx-rLC" id="jbj-hq-4LC"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6is-qg-yDb">
-                        <rect key="frame" x="339" y="32" width="137" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="ベス日本語既定値" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TB4-BN-6Yq">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="bethJpn:" target="Voe-Tx-rLC" id="O9I-hQ-2Co"/>
-                        </connections>
-                    </button>
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiU-JQ-oS4">
+                        <rect key="frame" x="345" y="39" width="125" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="is2-JR-wG9">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="21"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6is-qg-yDb">
+                                        <rect key="frame" x="-6" y="-7" width="137" height="32"/>
+                                        <buttonCell key="cell" type="push" title="ベス日本語既定値" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TB4-BN-6Yq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="defaultButton:" target="Voe-Tx-rLC" id="oIj-fg-GdA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAw-Wx-N3S">
                         <rect key="frame" x="534" y="553" width="65" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1357,7 +1387,7 @@
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="defaultValue:" target="Voe-Tx-rLC" id="aI7-I9-hfg"/>
+                            <action selector="defaultButton:" target="Voe-Tx-rLC" id="k8L-Cg-Ibf"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9G-MG-old">

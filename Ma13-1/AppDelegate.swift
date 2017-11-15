@@ -14,172 +14,181 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
     @IBOutlet weak var window: NSWindow!
     
     //パラメーターの設定と表示
+    @IBOutlet weak var samp, flame, alp, pc, ts, ah, vunv, ws, wf, absize: NSTextField!
+    @IBOutlet weak var sampling, flamePriod, allPass, postfiltering, talkSpeed, addHalfTone, voiceUnvoice, weightSpectrum, weightF0, audioBuffSize : NSSlider!
+
     //サンプリング周波数
-    @IBOutlet weak var samp: NSTextField!
+
     @IBAction func sampling(_ sender: NSSlider) {
         samp.stringValue = String(format: "%.0f",sender.doubleValue)
     }
-    @IBOutlet weak var samplingOut: NSSlider!
-    @IBAction func sampact(_ sender: Any) {
-        samplingOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func samp(_ sender: Any) {
+        sampling.stringValue = String((sender as AnyObject).doubleValue)
     }
     //フレーム周期
-    @IBOutlet weak var flame: NSTextField!
     @IBAction func flamePriod(_ sender: NSSlider) {
-        flame.stringValue = String(format: "%.0f",sender.doubleValue)
+        flame.stringValue = String((sender as AnyObject).doubleValue)
     }
-    @IBOutlet weak var flamePriodOut: NSSlider!
-    @IBAction func flameact(_ sender: Any) {
-        flamePriodOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func flame(_ sender: Any) {
+        flamePriod.stringValue = String((sender as AnyObject).doubleValue)
     }
     //オールパス値
-    @IBOutlet weak var alp: NSTextField!
     @IBAction func allPass(_ sender: NSSlider) {
         alp.stringValue = String(format: "%.2f",sender.doubleValue)
     }
-    @IBOutlet weak var allPassOut: NSSlider!
-    @IBAction func alpact(_ sender: Any) {
-        allPassOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func alp(_ sender: Any) {
+        allPass.stringValue = String((sender as AnyObject).doubleValue)
     }
     //ポストフィルター係数
-    @IBOutlet weak var pc: NSTextField!
     @IBAction func postfiltering(_ sender: NSSlider) {
         pc.stringValue = String(format: "%.2f",sender.doubleValue)
     }
-    @IBOutlet weak var postfilteringOut: NSSlider!
-    @IBAction func pcact(_ sender: Any) {
-        postfilteringOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func pc(_ sender: Any) {
+        postfiltering.stringValue = String((sender as AnyObject).doubleValue)
     }
     //速さ
-    
-    @IBOutlet weak var ts: NSTextField!
     @IBAction func talkSpeed(_ sender: NSSlider) {
         ts.stringValue = String(format: "%.2f",sender.doubleValue)
     }
-    @IBOutlet weak var talkSpeedOut: NSSlider!
-    @IBAction func tsact(_ sender: Any) {
-        talkSpeedOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func ts(_ sender: Any) {
+        talkSpeed.stringValue = String((sender as AnyObject).doubleValue)
     }
     //追加ハーフトーン
-    @IBOutlet weak var ah: NSTextField!
     @IBAction func addHalfTone(_ sender: NSSlider) {
         ah.stringValue = String(format: "%.0f",sender.doubleValue)
     }
-    @IBOutlet weak var addHalfToneOut: NSSlider!
-    @IBAction func ahact(_ sender: Any) {
-        addHalfToneOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func ah(_ sender: Any) {
+        addHalfTone.stringValue = String((sender as AnyObject).doubleValue)
     }
     //有声/無声 境界値
-    @IBOutlet weak var vunv: NSTextField!
     @IBAction func voiceUnvoice(_ sender: NSSlider) {
         vunv.stringValue = String(format: "%.1f",sender.doubleValue)
     }
-    @IBOutlet weak var voiceUnvoiceOut: NSSlider!
-    @IBAction func vunvact(_ sender: Any) {
-        voiceUnvoiceOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func vunv(_ sender: Any) {
+        voiceUnvoice.stringValue = String((sender as AnyObject).doubleValue)
     }
     //スペクトラム系列内変動重み
-    @IBOutlet weak var ws: NSTextField!
     @IBAction func weightSpectrum(_ sender: NSSlider) {
         ws.stringValue = String(format: "%.2f",sender.doubleValue)
     }
-    @IBOutlet weak var weightSpectrumOut: NSSlider!
-    @IBAction func wsact(_ sender: Any) {
-        weightSpectrumOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func ws(_ sender: Any) {
+        weightSpectrum.stringValue = String((sender as AnyObject).doubleValue)
     }
     //F0系列内変動の重み
-    @IBOutlet weak var wf: NSTextField!
     @IBAction func weightF0(_ sender: NSSlider) {
         wf.stringValue = String(format: "%.2f",sender.doubleValue)
     }
-    @IBOutlet weak var weightF0Out: NSSlider!
-    @IBAction func wfact(_ sender: Any) {
-        weightF0Out.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func wf(_ sender: Any) {
+        weightF0.stringValue = String((sender as AnyObject).doubleValue)
     }
     //オーディオバッファーサイズ
-    @IBOutlet weak var absize: NSTextField!
     @IBAction func audioBuffSize(_ sender: NSSlider) {
         absize.stringValue = String(format: "%.0f",sender.doubleValue)
     }
-    @IBOutlet weak var audioBuffSizeOut: NSSlider!
-    @IBAction func absizeact(_ sender: Any) {
-        audioBuffSizeOut.stringValue = String((sender as AnyObject).doubleValue)
+    @IBAction func absize(_ sender: Any) {
+        audioBuffSize.stringValue = String((sender as AnyObject).doubleValue)
     }
     
     //既定値に戻すボタン実装
-    @IBAction func defaultValue(_ sender: Any) {
-        samp.stringValue = "48000"
-        samplingOut.stringValue = "48000"
-        flame.stringValue = "240"
-        flamePriodOut.stringValue = "240"
-        alp.stringValue = "0.55"
-        allPassOut.stringValue = "0.55"
-        pc.stringValue = "0.0"
-        postfilteringOut.stringValue = "0.0"
-        ts.stringValue = "1.0"
-        talkSpeedOut.stringValue = "1.0"
-        ah.stringValue = "0"
-        addHalfToneOut.stringValue = "0"
-        vunv.stringValue = "0.5"
-        voiceUnvoiceOut.stringValue = "0.5"
-        ws.stringValue = "1.0"
-        weightSpectrumOut.stringValue = "1.0"
-        wf.stringValue = "1.0"
-        weightF0Out.stringValue = "1.0"
-        absize.stringValue = "0"
-        audioBuffSizeOut.stringValue = "0"
+    @IBAction func defaultButton(_ sender: NSButton) {
+        var defaultparam:[String:[String:String]] = [
+            "既定値" : ["samp": "48000", "flame": "240","alp": "0.55","pc": "0.0","ts": "1.0","ah": "0","vunv": "0.5","ws": "1.0","wf": "1.0","absize": "0"],
+            "ベス日本語既定値" : ["samp": "48000", "flame": "240","alp": "0.59","pc": "0.0","ts": "0.88","ah": "-2.0","vunv": "0.2","ws": "1.0","wf": "0.83","absize": "0"],
+            "ベス英語既定値" : ["samp": "48000", "flame": "240","alp": "0.55","pc": "0.0","ts": "1.0","ah": "4.0","vunv": "0.2","ws": "1.0","wf": "1.2","absize": "0"]
+        ]
+        switch sender.title {
+        case "既定値":
+            samp.stringValue = defaultparam["既定値"]!["samp"]!
+            sampling.stringValue = defaultparam["既定値"]!["samp"]!
+            flame.stringValue = defaultparam["既定値"]!["flame"]!
+            flamePriod.stringValue = defaultparam["既定値"]!["flame"]!
+            alp.stringValue = defaultparam["既定値"]!["alp"]!
+            allPass.stringValue = defaultparam["既定値"]!["alp"]!
+            pc.stringValue = defaultparam["既定値"]!["pc"]!
+            postfiltering.stringValue = defaultparam["既定値"]!["pc"]!
+            ts.stringValue = defaultparam["既定値"]!["ts"]!
+            talkSpeed.stringValue = defaultparam["既定値"]!["ts"]!
+            ah.stringValue = defaultparam["既定値"]!["ah"]!
+            addHalfTone.stringValue = defaultparam["既定値"]!["ah"]!
+            vunv.stringValue = defaultparam["既定値"]!["vunv"]!
+            voiceUnvoice.stringValue = defaultparam["既定値"]!["vunv"]!
+            ws.stringValue = defaultparam["既定値"]!["ws"]!
+            weightSpectrum.stringValue = defaultparam["既定値"]!["ws"]!
+            wf.stringValue = defaultparam["既定値"]!["wf"]!
+            weightF0.stringValue = defaultparam["既定値"]!["wf"]!
+            absize.stringValue = defaultparam["既定値"]!["absize"]!
+            audioBuffSize.stringValue = defaultparam["既定値"]!["absize"]!
+            break
+        case "ベス日本語既定値":
+            samp.stringValue = defaultparam["ベス日本語既定値"]!["samp"]!
+            sampling.stringValue = defaultparam["ベス日本語既定値"]!["samp"]!
+            flame.stringValue = defaultparam["ベス日本語既定値"]!["flame"]!
+            flamePriod.stringValue = defaultparam["ベス日本語既定値"]!["flame"]!
+            alp.stringValue = defaultparam["ベス日本語既定値"]!["alp"]!
+            allPass.stringValue = defaultparam["ベス日本語既定値"]!["alp"]!
+            pc.stringValue = defaultparam["ベス日本語既定値"]!["pc"]!
+            postfiltering.stringValue = defaultparam["ベス日本語既定値"]!["pc"]!
+            ts.stringValue = defaultparam["ベス日本語既定値"]!["ts"]!
+            talkSpeed.stringValue = defaultparam["ベス日本語既定値"]!["ts"]!
+            ah.stringValue = defaultparam["ベス日本語既定値"]!["ah"]!
+            addHalfTone.stringValue = defaultparam["ベス日本語既定値"]!["ah"]!
+            vunv.stringValue = defaultparam["ベス日本語既定値"]!["vunv"]!
+            voiceUnvoice.stringValue = defaultparam["ベス日本語既定値"]!["vunv"]!
+            ws.stringValue = defaultparam["ベス日本語既定値"]!["ws"]!
+            weightSpectrum.stringValue = defaultparam["ベス日本語既定値"]!["ws"]!
+            wf.stringValue = defaultparam["ベス日本語既定値"]!["wf"]!
+            weightF0.stringValue = defaultparam["ベス日本語既定値"]!["wf"]!
+            absize.stringValue = defaultparam["ベス日本語既定値"]!["absize"]!
+            audioBuffSize.stringValue = defaultparam["ベス日本語既定値"]!["absize"]!
+            break
+        case "ベス英語既定値":
+            samp.stringValue = defaultparam["ベス英語既定値"]!["samp"]!
+            sampling.stringValue = defaultparam["ベス英語既定値"]!["samp"]!
+            flame.stringValue = defaultparam["ベス英語既定値"]!["flame"]!
+            flamePriod.stringValue = defaultparam["ベス英語既定値"]!["flame"]!
+            alp.stringValue = defaultparam["ベス英語既定値"]!["alp"]!
+            allPass.stringValue = defaultparam["ベス英語既定値"]!["alp"]!
+            pc.stringValue = defaultparam["ベス英語既定値"]!["pc"]!
+            postfiltering.stringValue = defaultparam["ベス英語既定値"]!["pc"]!
+            ts.stringValue = defaultparam["ベス英語既定値"]!["ts"]!
+            talkSpeed.stringValue = defaultparam["ベス英語既定値"]!["ts"]!
+            ah.stringValue = defaultparam["ベス英語既定値"]!["ah"]!
+            addHalfTone.stringValue = defaultparam["ベス英語既定値"]!["ah"]!
+            vunv.stringValue = defaultparam["ベス英語既定値"]!["vunv"]!
+            voiceUnvoice.stringValue = defaultparam["ベス英語既定値"]!["vunv"]!
+            ws.stringValue = defaultparam["ベス英語既定値"]!["ws"]!
+            weightSpectrum.stringValue = defaultparam["ベス英語既定値"]!["ws"]!
+            wf.stringValue = defaultparam["ベス英語既定値"]!["wf"]!
+            weightF0.stringValue = defaultparam["ベス英語既定値"]!["wf"]!
+            absize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
+            audioBuffSize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
+            break
+        default :
+            samp.stringValue = defaultparam["既定値"]!["samp"]!
+            sampling.stringValue = defaultparam["既定値"]!["samp"]!
+            flame.stringValue = defaultparam["既定値"]!["flame"]!
+            flamePriod.stringValue = defaultparam["既定値"]!["flame"]!
+            alp.stringValue = defaultparam["既定値"]!["alp"]!
+            allPass.stringValue = defaultparam["既定値"]!["alp"]!
+            pc.stringValue = defaultparam["既定値"]!["pc"]!
+            postfiltering.stringValue = defaultparam["既定値"]!["pc"]!
+            ts.stringValue = defaultparam["既定値"]!["ts"]!
+            talkSpeed.stringValue = defaultparam["既定値"]!["ts"]!
+            ah.stringValue = defaultparam["既定値"]!["ah"]!
+            addHalfTone.stringValue = defaultparam["既定値"]!["ah"]!
+            vunv.stringValue = defaultparam["既定値"]!["vunv"]!
+            voiceUnvoice.stringValue = defaultparam["既定値"]!["vunv"]!
+            ws.stringValue = defaultparam["既定値"]!["ws"]!
+            weightSpectrum.stringValue = defaultparam["既定値"]!["ws"]!
+            wf.stringValue = defaultparam["既定値"]!["wf"]!
+            weightF0.stringValue = defaultparam["既定値"]!["wf"]!
+            absize.stringValue = defaultparam["既定値"]!["absize"]!
+            audioBuffSize.stringValue = defaultparam["既定値"]!["absize"]!
+            break
+        }
     }
     
-    //beth既定値ボタン実装
-    @IBAction func bethJpn(_ sender: Any) {
-        samp.stringValue = "48000"
-        samplingOut.stringValue = "48000"
-        flame.stringValue = "240"
-        flamePriodOut.stringValue = "240"
-        alp.stringValue = "0.59"
-        allPassOut.stringValue = "0.59"
-        pc.stringValue = "0.0"
-        postfilteringOut.stringValue = "0.0"
-        ts.stringValue = "0.88"
-        talkSpeedOut.stringValue = "0.88"
-        ah.stringValue = "-2"
-        addHalfToneOut.stringValue = "-2"
-        vunv.stringValue = "0.2"
-        voiceUnvoiceOut.stringValue = "0.2"
-        ws.stringValue = "1.0"
-        weightSpectrumOut.stringValue = "1.0"
-        wf.stringValue = "0.83"
-        weightF0Out.stringValue = "0.83"
-        absize.stringValue = "0"
-        audioBuffSizeOut.stringValue = "0"
-    }
-    
-    //beth英語既定値ボタン実装
-    @IBAction func bethEng(_ sender: Any) {
-        samp.stringValue = "48000"
-        samplingOut.stringValue = "48000"
-        flame.stringValue = "240"
-        flamePriodOut.stringValue = "240"
-        alp.stringValue = "0.55"
-        allPassOut.stringValue = "0.55"
-        pc.stringValue = "0.0"
-        postfilteringOut.stringValue = "0.0"
-        ts.stringValue = "1.0"
-        talkSpeedOut.stringValue = "1.0"
-        ah.stringValue = "4.0"
-        addHalfToneOut.stringValue = "4.0"
-        vunv.stringValue = "0.2"
-        voiceUnvoiceOut.stringValue = "0.2"
-        ws.stringValue = "1.0"
-        weightSpectrumOut.stringValue = "1.0"
-        wf.stringValue = "1.2"
-        weightF0Out.stringValue = "1.2"
-        absize.stringValue = "0"
-        audioBuffSizeOut.stringValue = "0"
-    }
-    
-    
-    
+
     @IBOutlet weak var textBox: NSTextField!
     
     //日本語音声作成ボタン実装
