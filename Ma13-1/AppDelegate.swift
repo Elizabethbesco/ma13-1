@@ -12,6 +12,8 @@ import AVFoundation
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
     @IBOutlet weak var window: NSWindow!
+    var ap : AVAudioPlayer!
+    @IBOutlet weak var textBox: NSTextField!
     
     //パラメーターの設定と表示
     @IBOutlet weak var samp, flame, alp, pc, ts, ah, vunv, ws, wf, absize: NSTextField!
@@ -164,124 +166,90 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
             audioBuffSize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
             break
         default :
-            samp.stringValue = defaultparam["既定値"]!["samp"]!
-            sampling.stringValue = defaultparam["既定値"]!["samp"]!
-            flame.stringValue = defaultparam["既定値"]!["flame"]!
-            flamePriod.stringValue = defaultparam["既定値"]!["flame"]!
-            alp.stringValue = defaultparam["既定値"]!["alp"]!
-            allPass.stringValue = defaultparam["既定値"]!["alp"]!
-            pc.stringValue = defaultparam["既定値"]!["pc"]!
-            postfiltering.stringValue = defaultparam["既定値"]!["pc"]!
-            ts.stringValue = defaultparam["既定値"]!["ts"]!
-            talkSpeed.stringValue = defaultparam["既定値"]!["ts"]!
-            ah.stringValue = defaultparam["既定値"]!["ah"]!
-            addHalfTone.stringValue = defaultparam["既定値"]!["ah"]!
-            vunv.stringValue = defaultparam["既定値"]!["vunv"]!
-            voiceUnvoice.stringValue = defaultparam["既定値"]!["vunv"]!
-            ws.stringValue = defaultparam["既定値"]!["ws"]!
-            weightSpectrum.stringValue = defaultparam["既定値"]!["ws"]!
-            wf.stringValue = defaultparam["既定値"]!["wf"]!
-            weightF0.stringValue = defaultparam["既定値"]!["wf"]!
-            absize.stringValue = defaultparam["既定値"]!["absize"]!
-            audioBuffSize.stringValue = defaultparam["既定値"]!["absize"]!
             break
         }
     }
     
 
-    @IBOutlet weak var textBox: NSTextField!
+
     
     //日本語音声作成ボタン実装
-    @IBAction func txtCreate(_ sender: Any) {
-        //テキストファイル出力
-        let fn = "sample1.txt"
-        let t = textBox.stringValue
-        if let d = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let p = URL(fileURLWithPath: d).appendingPathComponent(fn)
-            do { //ファイルへの書き込み
-                try t.write(to: p, atomically: false, encoding: String.Encoding.utf8)
-            } catch { }
-        }
-        //シェルスクリプト出力(パラメーターの設定)
-        let shel = "OpenJTalk.sh"
-        let shelContent = "#!/bin/bash\n\ncd /Users/admin/Desktop\n/usr/local/bin/open_jtalk \\\n-x /usr/local/share/open_jtalk/open_jtalk_dic_utf_8-1.10 \\\n-m /usr/local/share/hts_voice/MMDAgent_Example-1.7/Voice/mei/mei_normal.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
-        if let aaa = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let myPath = URL(fileURLWithPath: aaa).appendingPathComponent(shel)
-            do { //ファイルへの書き込み
-                try shelContent.write(to: myPath, atomically: false, encoding: String.Encoding.utf8)
-            } catch { }
-        }
-        
-        // Create a Task instance
-        let task = Process()
-        
-        // Set the task parameters
-        task.launchPath = "/usr/bin/env"
-        task.arguments = ["/Users/admin/Desktop/OpenJTalk.sh"]
-        
-        // Create a Pipe and make the task
-        // put all the output there
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        
-        // Launch the task
-        task.launch()
-        task.waitUntilExit()
-    }
-    
-    //英語音声作成ボタン実装
-    @IBAction func engCreate(_ sender: Any) {
-        //テキストファイル出力
-        let fn = "sample1.txt"
-        let t = textBox.stringValue
-        if let d = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let p = URL(fileURLWithPath: d).appendingPathComponent(fn)
-            do { //ファイルへの書き込み
-                try t.write(to: p, atomically: false, encoding: String.Encoding.utf8)
-            } catch { }
-        }
-        //シェルスクリプト出力(パラメーターの設定)
-        let shel = "OpenJTalk.sh"
-        let shelContent = "#!/bin/bash\n\ncd /Users/admin/Desktop\n/usr/local/bin/flite_hts_engine \\\n-m /usr/local/share/hts_voice/hts_voice_cmu_us_arctic_slt-1.06/cmu_us_arctic_slt.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
-        if let aaa = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
-            let myPath = URL(fileURLWithPath: aaa).appendingPathComponent(shel)
-            do { //ファイルへの書き込み
-                try shelContent.write(to: myPath, atomically: false, encoding: String.Encoding.utf8)
-            } catch { }
+    @IBAction func createButton(_ sender: NSButton) {
+        func wavCreate(shelText:String){
+            //テキストファイル出力
+            let fn = "sample1.txt"
+            let t = textBox.stringValue
+            if let d = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+                let p = URL(fileURLWithPath: d).appendingPathComponent(fn)
+                do { //ファイルへの書き込み
+                    try t.write(to: p, atomically: false, encoding: String.Encoding.utf8)
+                } catch { }
+            }
+            //シェルスクリプト出力(パラメーターの設定)
+            let shel = "OpenJTalk.sh"
+            if let aaa = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+                let myPath = URL(fileURLWithPath: aaa).appendingPathComponent(shel)
+                do { //ファイルへの書き込み
+                    try shelText.write(to: myPath, atomically: false, encoding: String.Encoding.utf8)
+                } catch { }
+                
+            // Create a Task instance
+            let task = Process()
+            
+            // Set the task parameters
+            task.launchPath = "/usr/bin/env"
+            task.arguments = ["/Users/admin/Desktop/OpenJTalk.sh"]
+            
+            // Create a Pipe and make the task
+            // put all the output there
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            
+            // Launch the task
+            task.launch()
+            task.waitUntilExit()
+            }
         }
         
-        // Create a Task instance
-        let task = Process()
-        
-        // Set the task parameters
-        task.launchPath = "/usr/bin/env"
-        task.arguments = ["/Users/admin/Desktop/OpenJTalk.sh"]
-        
-        // Create a Pipe and make the task
-        // put all the output there
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        
-        // Launch the task
-        task.launch()
+        switch sender.title{
+        case "日本語音声作成":
+            let jpnShel = "#!/bin/bash\n\ncd /Users/admin/Desktop\n/usr/local/bin/open_jtalk \\\n-x /usr/local/share/open_jtalk/open_jtalk_dic_utf_8-1.10 \\\n-m /usr/local/share/hts_voice/MMDAgent_Example-1.7/Voice/mei/mei_normal.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
+            wavCreate(shelText:jpnShel)
+            let s = "/Users/admin/Desktop/out.wav"
+            ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s))
+            ap.delegate = self
+            break
+        case "英語音声作成":
+            let engShel = "#!/bin/bash\n\ncd /Users/admin/Desktop\n/usr/local/bin/flite_hts_engine \\\n-m /usr/local/share/hts_voice/hts_voice_cmu_us_arctic_slt-1.06/cmu_us_arctic_slt.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
+            wavCreate(shelText:engShel)
+            let s = "/Users/admin/Desktop/out.wav"
+            ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s))
+            ap.delegate = self
+            break
+        default:
+            break
+        }
     }
     
     
     //Play(音声再生)
-    var ap : AVAudioPlayer!
-    
-    @IBAction func play(_ b1: NSButton) {
-        ap.play()
+    @IBAction func play(_ sender: NSButton) {
+        switch sender.title{
+        case "再生":
+            ap.play()
+            break
+        case "一時停止":
+            ap.pause()
+            break
+        case "停止":
+            ap.stop()
+            ap.currentTime = 0
+            break
+        default:
+            break
+        }
     }
     
-    @IBAction func pause(_ sender: NSButton) {
-        ap.pause()
-    }
-    
-    @IBAction func stop(_ sender: NSButton) {
-        ap.stop()
-        ap.currentTime = 0
-    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let s = "/Users/admin/Desktop/out.wav"

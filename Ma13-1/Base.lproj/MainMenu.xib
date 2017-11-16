@@ -717,7 +717,7 @@
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="play:" target="Voe-Tx-rLC" id="0Df-AX-e9X"/>
+                            <action selector="play:" target="Voe-Tx-rLC" id="UQ0-nY-T7K"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ekd-Mm-3as">
@@ -728,28 +728,9 @@
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="pause:" target="Voe-Tx-rLC" id="j3N-67-QfV"/>
+                            <action selector="play:" target="Voe-Tx-rLC" id="fWO-yU-F6d"/>
                         </connections>
                     </button>
-                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-NF-wo0">
-                        <rect key="frame" x="323" y="453" width="112" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <slider verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7li-ns-r2W">
-                                <rect key="frame" x="-2" y="-1" width="116" height="24"/>
-                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="50000" doubleValue="48000" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="08q-a8-7Dv"/>
-                                <connections>
-                                    <action selector="sampling:" target="Voe-Tx-rLC" id="8qE-rP-JLG"/>
-                                </connections>
-                            </slider>
-                        </subviews>
-                        <visibilityPriorities>
-                            <integer value="1000"/>
-                        </visibilityPriorities>
-                        <customSpacing>
-                            <real value="3.4028234663852886e+38"/>
-                        </customSpacing>
-                    </stackView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJr-vb-Vfn">
                         <rect key="frame" x="37" y="457" width="17" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -803,7 +784,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="300" doubleValue="240" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="NgT-6q-VvT"/>
                         <connections>
-                            <action selector="sampling:" target="Voe-Tx-rLC" id="y2O-Zx-Dbz"/>
+                            <action selector="flamePriod:" target="Voe-Tx-rLC" id="RQj-cH-4bh"/>
                         </connections>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-OY-JWv">
@@ -1310,7 +1291,7 @@
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="engCreate:" target="Voe-Tx-rLC" id="7YH-0R-JHq"/>
+                            <action selector="createButton:" target="Voe-Tx-rLC" id="18n-ni-soX"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIC-B3-KmJ">
@@ -1365,7 +1346,7 @@
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="stop:" target="Voe-Tx-rLC" id="E21-VU-hmH"/>
+                            <action selector="play:" target="Voe-Tx-rLC" id="d7h-k5-hbF"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-xY-Umh">
@@ -1376,7 +1357,7 @@
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         </buttonCell>
                         <connections>
-                            <action selector="txtCreate:" target="Voe-Tx-rLC" id="Eqx-70-Dn9"/>
+                            <action selector="createButton:" target="Voe-Tx-rLC" id="exY-Yu-z3n"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7i4-5p-GNk">
@@ -1417,6 +1398,14 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7li-ns-r2W">
+                        <rect key="frame" x="321" y="455" width="116" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="50000" doubleValue="48000" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="08q-a8-7Dv"/>
+                        <connections>
+                            <action selector="sampling:" target="Voe-Tx-rLC" id="8qE-rP-JLG"/>
+                        </connections>
+                    </slider>
                 </subviews>
             </view>
             <point key="canvasLocation" x="260.5" y="1"/>
