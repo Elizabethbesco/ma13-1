@@ -99,72 +99,69 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
             "ベス英語既定値" : ["samp": "48000", "flame": "240","alp": "0.55","pc": "0.0","ts": "1.0","ah": "4.0","vunv": "0.2","ws": "1.0","wf": "1.2","absize": "0"]
         ]
         switch sender.title {
-        case "既定値":
-            samp.stringValue = defaultparam["既定値"]!["samp"]!
-            sampling.stringValue = defaultparam["既定値"]!["samp"]!
-            flame.stringValue = defaultparam["既定値"]!["flame"]!
-            flamePriod.stringValue = defaultparam["既定値"]!["flame"]!
-            alp.stringValue = defaultparam["既定値"]!["alp"]!
-            allPass.stringValue = defaultparam["既定値"]!["alp"]!
-            pc.stringValue = defaultparam["既定値"]!["pc"]!
-            postfiltering.stringValue = defaultparam["既定値"]!["pc"]!
-            ts.stringValue = defaultparam["既定値"]!["ts"]!
-            talkSpeed.stringValue = defaultparam["既定値"]!["ts"]!
-            ah.stringValue = defaultparam["既定値"]!["ah"]!
-            addHalfTone.stringValue = defaultparam["既定値"]!["ah"]!
-            vunv.stringValue = defaultparam["既定値"]!["vunv"]!
-            voiceUnvoice.stringValue = defaultparam["既定値"]!["vunv"]!
-            ws.stringValue = defaultparam["既定値"]!["ws"]!
-            weightSpectrum.stringValue = defaultparam["既定値"]!["ws"]!
-            wf.stringValue = defaultparam["既定値"]!["wf"]!
-            weightF0.stringValue = defaultparam["既定値"]!["wf"]!
-            absize.stringValue = defaultparam["既定値"]!["absize"]!
-            audioBuffSize.stringValue = defaultparam["既定値"]!["absize"]!
-            break
-        case "ベス日本語既定値":
-            samp.stringValue = defaultparam["ベス日本語既定値"]!["samp"]!
-            sampling.stringValue = defaultparam["ベス日本語既定値"]!["samp"]!
-            flame.stringValue = defaultparam["ベス日本語既定値"]!["flame"]!
-            flamePriod.stringValue = defaultparam["ベス日本語既定値"]!["flame"]!
-            alp.stringValue = defaultparam["ベス日本語既定値"]!["alp"]!
-            allPass.stringValue = defaultparam["ベス日本語既定値"]!["alp"]!
-            pc.stringValue = defaultparam["ベス日本語既定値"]!["pc"]!
-            postfiltering.stringValue = defaultparam["ベス日本語既定値"]!["pc"]!
-            ts.stringValue = defaultparam["ベス日本語既定値"]!["ts"]!
-            talkSpeed.stringValue = defaultparam["ベス日本語既定値"]!["ts"]!
-            ah.stringValue = defaultparam["ベス日本語既定値"]!["ah"]!
-            addHalfTone.stringValue = defaultparam["ベス日本語既定値"]!["ah"]!
-            vunv.stringValue = defaultparam["ベス日本語既定値"]!["vunv"]!
-            voiceUnvoice.stringValue = defaultparam["ベス日本語既定値"]!["vunv"]!
-            ws.stringValue = defaultparam["ベス日本語既定値"]!["ws"]!
-            weightSpectrum.stringValue = defaultparam["ベス日本語既定値"]!["ws"]!
-            wf.stringValue = defaultparam["ベス日本語既定値"]!["wf"]!
-            weightF0.stringValue = defaultparam["ベス日本語既定値"]!["wf"]!
-            absize.stringValue = defaultparam["ベス日本語既定値"]!["absize"]!
-            audioBuffSize.stringValue = defaultparam["ベス日本語既定値"]!["absize"]!
-            break
-        case "ベス英語既定値":
-            samp.stringValue = defaultparam["ベス英語既定値"]!["samp"]!
-            sampling.stringValue = defaultparam["ベス英語既定値"]!["samp"]!
-            flame.stringValue = defaultparam["ベス英語既定値"]!["flame"]!
-            flamePriod.stringValue = defaultparam["ベス英語既定値"]!["flame"]!
-            alp.stringValue = defaultparam["ベス英語既定値"]!["alp"]!
-            allPass.stringValue = defaultparam["ベス英語既定値"]!["alp"]!
-            pc.stringValue = defaultparam["ベス英語既定値"]!["pc"]!
-            postfiltering.stringValue = defaultparam["ベス英語既定値"]!["pc"]!
-            ts.stringValue = defaultparam["ベス英語既定値"]!["ts"]!
-            talkSpeed.stringValue = defaultparam["ベス英語既定値"]!["ts"]!
-            ah.stringValue = defaultparam["ベス英語既定値"]!["ah"]!
-            addHalfTone.stringValue = defaultparam["ベス英語既定値"]!["ah"]!
-            vunv.stringValue = defaultparam["ベス英語既定値"]!["vunv"]!
-            voiceUnvoice.stringValue = defaultparam["ベス英語既定値"]!["vunv"]!
-            ws.stringValue = defaultparam["ベス英語既定値"]!["ws"]!
-            weightSpectrum.stringValue = defaultparam["ベス英語既定値"]!["ws"]!
-            wf.stringValue = defaultparam["ベス英語既定値"]!["wf"]!
-            weightF0.stringValue = defaultparam["ベス英語既定値"]!["wf"]!
-            absize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
-            audioBuffSize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
-            break
+            case "既定値":
+                samp.stringValue = defaultparam["既定値"]!["samp"]!
+                sampling.stringValue = defaultparam["既定値"]!["samp"]!
+                flame.stringValue = defaultparam["既定値"]!["flame"]!
+                flamePriod.stringValue = defaultparam["既定値"]!["flame"]!
+                alp.stringValue = defaultparam["既定値"]!["alp"]!
+                allPass.stringValue = defaultparam["既定値"]!["alp"]!
+                pc.stringValue = defaultparam["既定値"]!["pc"]!
+                postfiltering.stringValue = defaultparam["既定値"]!["pc"]!
+                ts.stringValue = defaultparam["既定値"]!["ts"]!
+                talkSpeed.stringValue = defaultparam["既定値"]!["ts"]!
+                ah.stringValue = defaultparam["既定値"]!["ah"]!
+                addHalfTone.stringValue = defaultparam["既定値"]!["ah"]!
+                vunv.stringValue = defaultparam["既定値"]!["vunv"]!
+                voiceUnvoice.stringValue = defaultparam["既定値"]!["vunv"]!
+                ws.stringValue = defaultparam["既定値"]!["ws"]!
+                weightSpectrum.stringValue = defaultparam["既定値"]!["ws"]!
+                wf.stringValue = defaultparam["既定値"]!["wf"]!
+                weightF0.stringValue = defaultparam["既定値"]!["wf"]!
+                absize.stringValue = defaultparam["既定値"]!["absize"]!
+                audioBuffSize.stringValue = defaultparam["既定値"]!["absize"]!
+            case "ベス日本語既定値":
+                samp.stringValue = defaultparam["ベス日本語既定値"]!["samp"]!
+                sampling.stringValue = defaultparam["ベス日本語既定値"]!["samp"]!
+                flame.stringValue = defaultparam["ベス日本語既定値"]!["flame"]!
+                flamePriod.stringValue = defaultparam["ベス日本語既定値"]!["flame"]!
+                alp.stringValue = defaultparam["ベス日本語既定値"]!["alp"]!
+                allPass.stringValue = defaultparam["ベス日本語既定値"]!["alp"]!
+                pc.stringValue = defaultparam["ベス日本語既定値"]!["pc"]!
+                postfiltering.stringValue = defaultparam["ベス日本語既定値"]!["pc"]!
+                ts.stringValue = defaultparam["ベス日本語既定値"]!["ts"]!
+                talkSpeed.stringValue = defaultparam["ベス日本語既定値"]!["ts"]!
+                ah.stringValue = defaultparam["ベス日本語既定値"]!["ah"]!
+                addHalfTone.stringValue = defaultparam["ベス日本語既定値"]!["ah"]!
+                vunv.stringValue = defaultparam["ベス日本語既定値"]!["vunv"]!
+                voiceUnvoice.stringValue = defaultparam["ベス日本語既定値"]!["vunv"]!
+                ws.stringValue = defaultparam["ベス日本語既定値"]!["ws"]!
+                weightSpectrum.stringValue = defaultparam["ベス日本語既定値"]!["ws"]!
+                wf.stringValue = defaultparam["ベス日本語既定値"]!["wf"]!
+                weightF0.stringValue = defaultparam["ベス日本語既定値"]!["wf"]!
+                absize.stringValue = defaultparam["ベス日本語既定値"]!["absize"]!
+                audioBuffSize.stringValue = defaultparam["ベス日本語既定値"]!["absize"]!
+            case "ベス英語既定値":
+                samp.stringValue = defaultparam["ベス英語既定値"]!["samp"]!
+                sampling.stringValue = defaultparam["ベス英語既定値"]!["samp"]!
+                flame.stringValue = defaultparam["ベス英語既定値"]!["flame"]!
+                flamePriod.stringValue = defaultparam["ベス英語既定値"]!["flame"]!
+                alp.stringValue = defaultparam["ベス英語既定値"]!["alp"]!
+                allPass.stringValue = defaultparam["ベス英語既定値"]!["alp"]!
+                pc.stringValue = defaultparam["ベス英語既定値"]!["pc"]!
+                postfiltering.stringValue = defaultparam["ベス英語既定値"]!["pc"]!
+                ts.stringValue = defaultparam["ベス英語既定値"]!["ts"]!
+                talkSpeed.stringValue = defaultparam["ベス英語既定値"]!["ts"]!
+                ah.stringValue = defaultparam["ベス英語既定値"]!["ah"]!
+                addHalfTone.stringValue = defaultparam["ベス英語既定値"]!["ah"]!
+                vunv.stringValue = defaultparam["ベス英語既定値"]!["vunv"]!
+                voiceUnvoice.stringValue = defaultparam["ベス英語既定値"]!["vunv"]!
+                ws.stringValue = defaultparam["ベス英語既定値"]!["ws"]!
+                weightSpectrum.stringValue = defaultparam["ベス英語既定値"]!["ws"]!
+                wf.stringValue = defaultparam["ベス英語既定値"]!["wf"]!
+                weightF0.stringValue = defaultparam["ベス英語既定値"]!["wf"]!
+                absize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
+                audioBuffSize.stringValue = defaultparam["ベス英語既定値"]!["absize"]!
         default :
             break
         }
@@ -175,9 +172,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
     
     //日本語音声作成ボタン実装
     @IBAction func createButton(_ sender: NSButton) {
+        //音声ファイルの出力
         func wavCreate(shelText:String){
             //テキストファイル出力
-            let fn = "sample1.txt"
+            let fn = "OpenJTalk/sample1.txt"
             let t = textBox.stringValue
             if let d = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
                 let p = URL(fileURLWithPath: d).appendingPathComponent(fn)
@@ -186,7 +184,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
                 } catch { }
             }
             //シェルスクリプト出力(パラメーターの設定)
-            let shel = "OpenJTalk.sh"
+            let shel = "OpenJTalk/OpenJTalk.sh"
             if let aaa = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.desktopDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
                 let myPath = URL(fileURLWithPath: aaa).appendingPathComponent(shel)
                 do { //ファイルへの書き込み
@@ -197,8 +195,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
             let task = Process()
             
             // Set the task parameters
+            let shelPath = NSHomeDirectory() + "/Desktop/" + shel
             task.launchPath = "/usr/bin/env"
-            task.arguments = ["/Users/admin/Desktop/OpenJTalk.sh"]
+            task.arguments = [shelPath]
             
             // Create a Pipe and make the task
             // put all the output there
@@ -211,40 +210,39 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
             }
         }
         
+        //音声作成ボタン
         switch sender.title{
-        case "日本語音声作成":
-            let jpnShel = "#!/bin/bash\n\ncd /Users/admin/Desktop\n/usr/local/bin/open_jtalk \\\n-x /usr/local/share/open_jtalk/open_jtalk_dic_utf_8-1.10 \\\n-m /usr/local/share/hts_voice/MMDAgent_Example-1.7/Voice/mei/mei_normal.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
-            wavCreate(shelText:jpnShel)
-            let s = "/Users/admin/Desktop/out.wav"
-            ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s))
-            ap.delegate = self
-            break
-        case "英語音声作成":
-            let engShel = "#!/bin/bash\n\ncd /Users/admin/Desktop\n/usr/local/bin/flite_hts_engine \\\n-m /usr/local/share/hts_voice/hts_voice_cmu_us_arctic_slt-1.06/cmu_us_arctic_slt.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
-            wavCreate(shelText:engShel)
-            let s = "/Users/admin/Desktop/out.wav"
-            ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s))
-            ap.delegate = self
-            break
+            case "日本語音声作成":
+                let jpnShel = "#!/bin/bash\n\ncd \(NSHomeDirectory())/Desktop/OpenJTalk\n/usr/local/bin/open_jtalk \\\n-x /usr/local/share/open_jtalk/open_jtalk_dic_utf_8-1.10 \\\n-m /usr/local/share/hts_voice/MMDAgent_Example-1.7/Voice/mei/mei_normal.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
+                
+                wavCreate(shelText:jpnShel)
+                
+                let s = "\(NSHomeDirectory())/Desktop/OpenJTalk/out.wav"
+                ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s))
+                ap.delegate = self
+            case "英語音声作成":
+                let engShel = "#!/bin/bash\n\ncd \(NSHomeDirectory())/Desktop/OpenJTalk\n/usr/local/bin/flite_hts_engine \\\n-m /usr/local/share/hts_voice/hts_voice_cmu_us_arctic_slt-1.06/cmu_us_arctic_slt.htsvoice \\\n-s \(samp.stringValue) \\\n-p \(flame.stringValue) \\\n-a \(alp.stringValue) \\\n-b \(pc.stringValue) \\\n-r \(ts.stringValue) \\\n-fm \(ah.stringValue) \\\n-u \(vunv.stringValue) \\\n-jm \(ws.stringValue) \\\n-jf \(wf.stringValue) \\\n-z \(absize.stringValue) \\\n-ow out.wav \\\nsample1.txt"
+                
+                wavCreate(shelText:engShel)
+                
+                let s = "\(NSHomeDirectory())/Desktop/OpenJTalk/out.wav"
+                ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s))
+                ap.delegate = self
         default:
             break
         }
     }
     
-    
     //Play(音声再生)
     @IBAction func play(_ sender: NSButton) {
         switch sender.title{
-        case "再生":
-            ap.play()
-            break
-        case "一時停止":
-            ap.pause()
-            break
-        case "停止":
-            ap.stop()
-            ap.currentTime = 0
-            break
+            case "再生":
+                ap.play()
+            case "一時停止":
+                ap.pause()
+            case "停止":
+                ap.stop()
+                ap.currentTime = 0
         default:
             break
         }
@@ -252,7 +250,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, AVAudioPlayerDelegate {
     
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let s = "/Users/admin/Desktop/out.wav"
+        let s = "\(NSHomeDirectory())/Desktop/OpenJTalk/out.wav"
         ap = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: s)) //パスでオーディオプレイヤー取得
         ap.delegate = self //オーディオプレイヤーのデリゲート設定
     }
